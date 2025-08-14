@@ -1,0 +1,23 @@
+{
+  "name": "backend---aula",
+  "version": "1.0.0",
+  "description": "Repositório criado para as aulas teóricas e atividades práticas da disciplina.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xberlex/Backend---aula.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xberlex/Backend---aula/issues"
+  },
+  "homepage": "https://github.com/xberlex/Backend---aula#readme",
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
