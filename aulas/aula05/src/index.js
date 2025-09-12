@@ -11,7 +11,7 @@ function multiplicacao(a, b) {
 }
 
 function divisao(a, b) {
-    if (b === 0) throw Error("Divisao por ZERO");
+    if (b === 0) throw Error ("Divisao por ZERO");
     return a / b;
 }
 
