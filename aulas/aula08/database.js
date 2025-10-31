@@ -2,7 +2,7 @@
 const { MongoClient } = require('mongodb');
 
 // string de conexao
-const url = "mongodb+srv://marcosa:3301novais@cluster0.tmucgud.mongodb.net/";
+const url = "mongodb+srv://marcosa_db_user:3301novais@cluster0.acjausw.mongodb.net/";
 
 const client = new MongoClient(url);
 
