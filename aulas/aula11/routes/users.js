@@ -7,7 +7,7 @@ router.post('/login', function(req, res, next) {
   const { username, password } = req.body;
 
   // simular uma autenticação
-  if(username === 'marcos' && password === 'abcd1234') {
+  if(username === '' && password === '') {
     const payload = {
       iss: "Minha API",
       email: username,
