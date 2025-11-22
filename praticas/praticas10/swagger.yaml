@@ -1,0 +1,110 @@
+paths:
+  /usuarios:
+    post:
+      tags:
+        - usuarios
+      summary: Criar usuário
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - senha
+              properties:
+                email:
+                  type: string
+                senha:
+                  type: string
+      responses:
+        201:
+          description: Usuário criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        422:
+          description: Email e Senha são obrigatórios
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: Email e Senha são obrigatórios
+
+  /usuarios/login:
+    post:
+      tags:
+        - usuarios
+      summary: Realiza login do usuário e retorna um token JWT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - usuario
+                - senha
+              properties:
+                usuario:
+                  type: string
+                  example: usuario@email.com
+                senha:
+                  type: string
+                  example: abcd1234
+      responses:
+        "200":
+          description: Login bem-sucedido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        "401":
+          description: Credenciais inválidas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
+
+components:
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        _id:
+          type: string
+        email:
+          type: string
+        senha:
+          type: string
+
+    Mensagem:
+      type: object
+      properties:
+        msg:
+          type: string
+          example: Credenciais inválidas
+  /usuarios/{id}:
+    delete:
+      tags:
+        - usuarios
+      summary: Remove um usuário pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID do usuário a ser removido
+      responses:
+        204:
+          description: Usuário removido com sucesso (sem conteúdo)
